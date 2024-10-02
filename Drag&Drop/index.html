@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="stock-watchlist-container">
+        <h2>My Watchlist</h2>
+
+        <div id="stocks">
+
+            <article class="stock-row">
+                <img src="./images/tesla.png" alt="tesla" class="stock-image">
+                <div class="stock-name">
+                    <h3>TSLA</h3>
+                    <p>Tesla, Inc.</p>
+                </div>
+                <div class="stock-info">
+                    <p class="price">216.61$</p>
+                    <p class="change">+4.07%</p>
+                </div>
+            </article>
+
+            <article class="stock-row">
+                <img src="./images/apple.png" alt="apple" class="stock-image">
+                <div class="stock-name">
+                    <h3>Apple</h3>
+                    <p>Apple, Inc.</p>
+                </div>
+                <div class="stock-info">
+                    <p class="price--negative">224.22$</p>
+                    <p class="change--negative">-1.99%</p>
+                </div>
+            </article>
+
+            <article class="stock-row">
+                <img src="./images/nvidia.png" alt="nvidia" class="stock-image">
+                <div class="stock-name">
+                    <h3>Nvidia</h3>
+                    <p>Nvidia, Inc.</p>
+                </div>
+                <div class="stock-info">
+                    <p class="price">117,64$</p>
+                    <p class="change">+0,55%</p>
+                </div>
+            </article>
+            <article class="stock-row">
+                <img src="./images/shell.png" alt="shell" class="stock-image">
+                <div class="stock-name">
+                    <h3>Shell</h3>
+                    <p>Shell, Inc.</p>
+                </div>
+                <div class="stock-info">
+                    <p class="price">2.541,50$</p>
+                    <p class="change">+2,56%</p>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
