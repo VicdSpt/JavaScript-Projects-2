@@ -1,7 +1,7 @@
 const containerBox = document.querySelector(".container");
 const randomizeButton = document.getElementById("randomize-color-btn"); 
 
-for (let index = 0; index < 6; index++) {
+for (let index = 0; index < 15; index++) {
   const colorGeneration = document.createElement("div");
   colorGeneration.classList.add("color-container");
   containerBox.appendChild(colorGeneration);
