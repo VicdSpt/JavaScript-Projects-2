@@ -1,37 +1,41 @@
-const btnGenerate = document.querySelector(".btn");
-const input = document.getElementById("input");
-const copyIconPassword = document.querySelector(".fa-copy");
-const alert = document.querySelector(".alert-container");
+const btnEmoji = document.querySelector(".btn-emoji");
+const emojiName = document.getElementById("emoji-name");
+const btnCopyEmoji= document.querySelector(".btn-copy-emoji");
 
-btnGenerate.addEventListener("click", () => {
-  createPassword();
-});
 
-copyIconPassword.addEventListener("click", () => {
-  copyPassword();
-  if (input.value) {
-    alert.classList.remove("active");
-    setTimeout(() => {
-      alert.classList.add("active");
-    }, 2000);
-  }
-});
+const emoji = [];
 
-function createPassword() {
-  const characters =
-    "0123456789abcdefghijklmnopqrstuvwxtz!@#$%^&*()_+?:{}[]ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const passwordLength = 14;
-  let password = "";
-  for (let index = 0; index < passwordLength; index++) {
-    const randomNumber = Math.floor(Math.random() * characters.length);
-    password += characters.substring(randomNumber, randomNumber + 1);
-  }
-  input.value = password;
-  alert.innerText = password + " copied !";
+async function getEmoji(){
+    let response = await fetch(
+        "https://emoji-api.com/emojis?access_key=773b58f681fb786fafdb8392e8b8a75ddc177fd1"
+    );
+
+    data = await response.json();
+
+    for (let i = 0; i < 1500; i++){
+        emoji.push({
+            emojiName: data[i].character,
+            emojiCode: data[i].unicodeName,
+        });
+    }
 }
 
-function copyPassword() {
-  input.select();
-  input.setSelectionRange(0, 9999);
-  navigator.clipboard.writeText(input.value);
-}
+getEmoji();
+
+btnEmoji.addEventListener("click", () => {
+    const randomNumber = Math.floor(Math.random() * emoji.length);
+    btnEmoji.innerText = emoji[randomNumber].emojiName;
+    emojiName.innerText = emoji[randomNumber].emojiCode;
+})
+
+// the copy was made with Mistral
+
+btnCopyEmoji.addEventListener("click", () => {
+    const textArea = document.createElement("textarea");
+    textArea.value = btnEmoji.innerText;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    textArea.remove();
+    alert("Emoji copied to clipboard!");
+});
