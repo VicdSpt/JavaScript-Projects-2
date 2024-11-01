@@ -28,6 +28,8 @@ btnEmoji.addEventListener("click", () => {
     emojiName.innerText = emoji[randomNumber].emojiCode;
 })
 
+// the copy was made with Mistral
+
 btnCopyEmoji.addEventListener("click", () => {
     const textArea = document.createElement("textarea");
     textArea.value = btnEmoji.innerText;
